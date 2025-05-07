@@ -1,0 +1,29 @@
+/* Fix invisible dark badge when combined with dark outline button */
+button.btn:hover span.btn,
+button.btn:active span.btn
+{
+    color: #fff;
+    border-color: #fff;
+}
+
+.ellipsis {
+    max-width: 150px; /* Set your desired max-width */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Fix dropify text message size is too big */
+.dropify-wrapper .dropify-message p {
+    font-size: 1rem;
+}
+
+/* Change datatable table styling to sb admin for table row */
+table.table.dataTable.table-hover>tbody>tr:hover>* {
+    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+}
+
+.img-account-profile {
+    height: 10rem;
+    width: 10rem;
+}
