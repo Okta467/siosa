@@ -33,6 +33,11 @@ $user_logged_in = $_SESSION['nama_customer'] ?? $_SESSION['nama_guest'] ?? $_SES
         Pesanan
       </a>
 
+      <a class="nav-link <?php if ($current_page === 'kunjungan') echo 'active' ?>" href="kunjungan.php?go=kunjungan">
+        <div class="nav-link-icon"><i data-feather="coffee"></i></div>
+        Kunjungan
+      </a>
+
       <a class="nav-link <?php if ($current_page === 'informasi') echo 'active' ?>" href="informasi.php?go=informasi">
         <div class="nav-link-icon"><i data-feather="info"></i></div>
         Informasi
