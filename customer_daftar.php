@@ -104,7 +104,7 @@
                       </div>
 
                       <div class="col-md-6">
-                        <button name="xsubmit" id="toggle_swal_submit" type="submit" class="btn btn-red w-100">Simpan</button>
+                        <button name="xsubmit" id="toggle_swal_submit" type="submit" class="btn btn-primary w-100">Simpan</button>
                       </div>
 
                     </div>

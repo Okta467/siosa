@@ -49,7 +49,7 @@
                     
                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                       <a class="small invisible" href="#">Forgot Password?</a>
-                      <button name="xsubmit" type="submit" class="btn btn-red">Login</a>
+                      <button name="xsubmit" type="submit" class="btn btn-primary">Login</a>
                     </div>
 
                   </form>
