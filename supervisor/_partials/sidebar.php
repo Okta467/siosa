@@ -14,14 +14,7 @@ $user_logged_in = $_SESSION['nama_supervisor'] ?? $_SESSION['nama_guest'] ?? $_S
         Dashboard
       </a>
 
-      <div class="sidenav-menu-heading">Profil</div>
-      
-      <a class="nav-link <?php if ($current_page === 'profil') echo 'active' ?>" href="profil.php?go=profil">
-        <div class="nav-link-icon"><i data-feather="users"></i></div>
-        Profil
-      </a>
-
-      <div class="sidenav-menu-heading">Master</div>
+      <div class="sidenav-menu-heading">Data Utama</div>
       
       <a class="nav-link <?php if ($current_page === 'customer') echo 'active' ?>" href="customer.php?go=customer">
         <div class="nav-link-icon"><i data-feather="user"></i></div>
@@ -29,7 +22,7 @@ $user_logged_in = $_SESSION['nama_supervisor'] ?? $_SESSION['nama_guest'] ?? $_S
       </a>
       
       <a class="nav-link <?php if ($current_page === 'pesanan') echo 'active' ?>" href="pesanan.php?go=pesanan">
-        <div class="nav-link-icon"><i data-feather="shopping-cart"></i></div>
+        <div class="nav-link-icon"><i data-feather="shopping-bag"></i></div>
         Pesanan
       </a>
       

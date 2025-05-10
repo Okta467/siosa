@@ -14,22 +14,15 @@ $user_logged_in = $_SESSION['nama_customer'] ?? $_SESSION['nama_guest'] ?? $_SES
         Dashboard
       </a>
 
-      <div class="sidenav-menu-heading">Profil</div>
-
-      <a class="nav-link <?php if ($current_page === 'profil') echo 'active' ?>" href="profil.php?go=profil">
-        <div class="nav-link-icon"><i data-feather="users"></i></div>
-        Profil
-      </a>
-
-      <div class="sidenav-menu-heading">Master</div>
+      <div class="sidenav-menu-heading">Data Utama</div>
 
       <a class="nav-link <?php if ($current_page === 'barang') echo 'active' ?>" href="barang.php?go=barang">
-        <div class="nav-link-icon"><i data-feather="package"></i></div>
+        <div class="nav-link-icon"><i data-feather="grid"></i></div>
         Barang
       </a>
 
       <a class="nav-link <?php if ($current_page === 'pesanan') echo 'active' ?>" href="pesanan.php?go=pesanan">
-        <div class="nav-link-icon"><i data-feather="shopping-cart"></i></div>
+        <div class="nav-link-icon"><i data-feather="shopping-bag"></i></div>
         Pesanan
       </a>
 
@@ -39,7 +32,7 @@ $user_logged_in = $_SESSION['nama_customer'] ?? $_SESSION['nama_guest'] ?? $_SES
       </a>
 
       <a class="nav-link <?php if ($current_page === 'informasi') echo 'active' ?>" href="informasi.php?go=informasi">
-        <div class="nav-link-icon"><i data-feather="info"></i></div>
+        <div class="nav-link-icon"><i data-feather="compass"></i></div>
         Informasi
       </a>
 

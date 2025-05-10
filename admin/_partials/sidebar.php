@@ -14,7 +14,29 @@ $user_logged_in = $_SESSION['nama_pegawai'] ?? $_SESSION['nama_guest'] ?? $_SESS
         Dashboard
       </a>
 
-      <div class="sidenav-menu-heading">Pengguna</div>
+      <div class="sidenav-menu-heading">Data Utama</div>
+      
+      <a class="nav-link <?php if ($current_page === 'barang') echo 'active' ?>" href="barang.php?go=barang">
+        <div class="nav-link-icon"><i data-feather="grid"></i></div>
+        Barang
+      </a>
+      
+      <a class="nav-link <?php if ($current_page === 'pesanan') echo 'active' ?>" href="pesanan.php?go=pesanan">
+        <div class="nav-link-icon"><i data-feather="shopping-bag"></i></div>
+        Pesanan
+      </a>
+      
+      <a class="nav-link <?php if ($current_page === 'kunjungan') echo 'active' ?>" href="kunjungan.php?go=kunjungan">
+        <div class="nav-link-icon"><i data-feather="coffee"></i></div>
+        Kunjungan
+      </a>
+      
+      <a class="nav-link <?php if ($current_page === 'informasi') echo 'active' ?>" href="informasi.php?go=informasi">
+        <div class="nav-link-icon"><i data-feather="compass"></i></div>
+        Informasi
+      </a>
+
+      <div class="sidenav-menu-heading">Akun</div>
       
       <a class="nav-link <?php if ($current_page === 'pengguna') echo 'active' ?>" href="pengguna.php?go=pengguna">
         <div class="nav-link-icon"><i data-feather="users"></i></div>
@@ -29,28 +51,6 @@ $user_logged_in = $_SESSION['nama_pegawai'] ?? $_SESSION['nama_guest'] ?? $_SESS
       <a class="nav-link <?php if ($current_page === 'supervisor') echo 'active' ?>" href="supervisor.php?go=supervisor">
         <div class="nav-link-icon"><i data-feather="star"></i></div>
         Supervisor
-      </a>
-
-      <div class="sidenav-menu-heading">Master</div>
-      
-      <a class="nav-link <?php if ($current_page === 'barang') echo 'active' ?>" href="barang.php?go=barang">
-        <div class="nav-link-icon"><i data-feather="package"></i></div>
-        Barang
-      </a>
-      
-      <a class="nav-link <?php if ($current_page === 'pesanan') echo 'active' ?>" href="pesanan.php?go=pesanan">
-        <div class="nav-link-icon"><i data-feather="shopping-cart"></i></div>
-        Pesanan
-      </a>
-      
-      <a class="nav-link <?php if ($current_page === 'kunjungan') echo 'active' ?>" href="kunjungan.php?go=kunjungan">
-        <div class="nav-link-icon"><i data-feather="coffee"></i></div>
-        Kunjungan
-      </a>
-      
-      <a class="nav-link <?php if ($current_page === 'informasi') echo 'active' ?>" href="informasi.php?go=informasi">
-        <div class="nav-link-icon"><i data-feather="info"></i></div>
-        Informasi
       </a>
       
       <div class="sidenav-menu-heading">Lainnya</div>

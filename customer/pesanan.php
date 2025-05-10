@@ -58,7 +58,7 @@ else :
             <div class="card card-header-actions mb-4 mt-5">
               <div class="card-header">
                 <div>
-                  <i data-feather="shopping-cart" class="me-2 mt-1"></i>
+                  <i data-feather="shopping-bag" class="me-2 mt-1"></i>
                   Data Pesanan
                 </div>
                 <button class="btn btn-sm btn-primary toggle_modal_tambah" type="button"><i data-feather="plus-circle" class="me-2"></i>Tambah Data</button>

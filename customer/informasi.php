@@ -58,7 +58,7 @@ else :
             <div class="card card-header-actions mb-4 mt-5">
               <div class="card-header">
                 <div>
-                  <i data-feather="info" class="me-2"></i>
+                  <i data-feather="compass" class="me-2"></i>
                   Data Informasi
                 </div>
               </div>

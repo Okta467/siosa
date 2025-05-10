@@ -190,7 +190,7 @@ else :
       <div class="modal-dialog" role="document" style="max-width: 600px;">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title"><i data-feather="info" class="me-2"></i>Detail Customer</h5>
+            <h5 class="modal-title"><i data-feather="compass" class="me-2"></i>Detail Customer</h5>
             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
