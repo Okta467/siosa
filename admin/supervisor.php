@@ -153,11 +153,11 @@ else :
                             
                           <?php if ($supervisor['hak_akses'] === 'supervisor'): ?>
                             
-                            <span class="badge bg-blue-soft text-blue"><?= $formatted_hak_akses ?></span>
+                            <span class="badge bg-info-soft text-info"><?= $formatted_hak_akses ?></span>
                             
                           <?php elseif ($supervisor['hak_akses'] === 'supervisor'): ?>
                             
-                            <span class="badge bg-purple-soft text-purple"><?= $formatted_hak_akses ?></span>
+                            <span class="badge bg-info-soft text-info"><?= $formatted_hak_akses ?></span>
 
                           <?php else: ?>
 

@@ -149,7 +149,7 @@ else :
                             
                           <?php if ($kunjungan['is_visited']): ?>
                             
-                            <span class="badge bg-blue-soft text-blue">Berkunjung</span>
+                            <span class="badge bg-info-soft text-info">Berkunjung</span>
 
                           <?php else: ?>
                             
