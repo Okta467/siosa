@@ -16,7 +16,7 @@
     $purifier = new HTMLPurifier($config);
     
     $id_customer = $_SESSION['id_customer'];
-    $is_visited = $_POST['xis_visited'];
+    $is_visited = 0; // belum berkunjung
     $tanggal_kunjungan = $_POST['xtanggal_kunjungan'];
     $jam_kunjungan = $_POST['xjam_kunjungan'];
     $tanggal_dan_jam_kunjungan = "{$tanggal_kunjungan} {$jam_kunjungan}";

@@ -246,25 +246,6 @@ else :
                 </select>
               </div>
     
-              
-              <div class="row gx-3">
-          
-                <div class="col-md-6">
-                  <div class="form-check form-check-solid mb-3">
-                    <input class="form-check-input" id="xis_visited_ya" type="radio" name="xis_visited" value="1" required>
-                    <label class="form-check-label" for="xis_visited_ya">Berkunjung</label>
-                  </div>
-                </div>
-                
-                <div class="col-md-6">
-                  <div class="form-check form-check-solid mb-3">
-                    <input class="form-check-input" id="xis_visited_belum" type="radio" name="xis_visited" value="0" checked required>
-                    <label class="form-check-label" for="xis_visited_belum">Belum Berkunjung</label>
-                  </div>
-                </div>
-          
-              </div>
-    
     
               <div class="row gx-3">
                 
