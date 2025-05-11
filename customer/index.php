@@ -67,7 +67,7 @@ else :
                       <i class="ms-1" data-feather="arrow-right"></i>
                     </a>
                   </div>
-                  <div class="col d-none d-lg-block mt-xxl-n4"><img class="img-fluid px-xl-4 mt-xxl-n5" src="<?= base_url('assets/img/illustrations/at-work.svg') ?>" /></div>
+                  <div class="col d-none d-lg-block mt-xxl-n4"><img class="img-fluid px-xl-4 mt-xxl-n5" src="<?= base_url('assets/img/illustrations/undraw/vintage-red.svg') ?>" /></div>
                 </div>
               </div>
             </div>
