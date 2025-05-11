@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2025 at 05:53 AM
+-- Generation Time: May 11, 2025 at 06:28 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -121,7 +121,8 @@ CREATE TABLE `tbl_kunjungan` (
 INSERT INTO `tbl_kunjungan` (`id_kunjungan`, `id_customer`, `tanggal_kunjungan`, `is_visited`, `created_at`, `updated_at`) VALUES
 (1, 18, '2025-05-07 18:49:43', 0, '2025-05-07 18:49:43', NULL),
 (2, 21, '2025-05-18 04:00:00', 0, '2025-05-07 23:26:55', '2025-05-07 23:42:56'),
-(4, 18, '2025-05-12 09:30:00', 1, '2025-05-07 23:49:16', '2025-05-10 14:10:44');
+(4, 18, '2025-05-12 09:30:00', 1, '2025-05-07 23:49:16', '2025-05-10 14:10:44'),
+(6, 18, '2025-05-11 08:00:00', 0, '2025-05-11 04:05:24', NULL);
 
 -- --------------------------------------------------------
 
@@ -143,10 +144,10 @@ CREATE TABLE `tbl_pengguna` (
 --
 
 INSERT INTO `tbl_pengguna` (`id_pengguna`, `username`, `password`, `hak_akses`, `created_at`, `last_login`) VALUES
-(9, 'admin', '$2y$10$r6i9ouw57cTTevcboVpfxuaaeGE.LqvH0ivtFunGnpjhus3jtxu1q', 'admin', '2024-06-10 14:42:24', '2025-05-10 09:54:32'),
-(21, 'okta99', '$2y$10$0HgF2X3fvRoHinFuPtaLuOcaEKFP1Nt3b7ftnmvzWHds6wTN1mNLa', 'customer', '2025-05-04 04:23:32', '2025-05-10 13:40:05'),
+(9, 'admin', '$2y$10$r6i9ouw57cTTevcboVpfxuaaeGE.LqvH0ivtFunGnpjhus3jtxu1q', 'admin', '2024-06-10 14:42:24', '2025-05-10 23:26:34'),
+(21, 'okta99', '$2y$10$0HgF2X3fvRoHinFuPtaLuOcaEKFP1Nt3b7ftnmvzWHds6wTN1mNLa', 'customer', '2025-05-04 04:23:32', '2025-05-10 23:26:31'),
 (30, 'bima99', '$2y$10$SSoZDPXvWnCBfR4Et9qZHOiDH2wm9nGZNjJA8FmPG53lZ8avfiiJW', 'customer', '2025-05-04 05:40:46', NULL),
-(31, 'nadya99', '$2y$10$l4sjXYt8ow1XYuPMt.gX6O97LU04lAtS2l.0RQgKr6eDf7MZC03/6', 'supervisor', '2025-05-04 05:41:20', '2025-05-10 09:46:21'),
+(31, 'nadya99', '$2y$10$l4sjXYt8ow1XYuPMt.gX6O97LU04lAtS2l.0RQgKr6eDf7MZC03/6', 'supervisor', '2025-05-04 05:41:20', '2025-05-10 23:26:19'),
 (35, 'tess', '$2y$10$3N7nozsZbAuvEsdxRijZEOEQyx3WKbh0tiQGA57PLkh1PUTEtyyya', 'customer', '2025-05-04 19:18:01', NULL);
 
 -- --------------------------------------------------------
@@ -161,6 +162,7 @@ CREATE TABLE `tbl_pesanan` (
   `id_customer` int(10) UNSIGNED NOT NULL,
   `tanggal_pesanan` date NOT NULL,
   `jumlah_pesanan` int(11) NOT NULL,
+  `status_pesanan` enum('belum_diproses','diproses','sudah_diproses','') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -169,16 +171,17 @@ CREATE TABLE `tbl_pesanan` (
 -- Dumping data for table `tbl_pesanan`
 --
 
-INSERT INTO `tbl_pesanan` (`id_pesanan`, `id_barang`, `id_customer`, `tanggal_pesanan`, `jumlah_pesanan`, `created_at`, `updated_at`) VALUES
-(1, 6, 21, '2024-07-30', 2, '2024-07-29 20:26:41', '2025-05-04 12:10:14'),
-(3, 5, 21, '2024-07-30', 3, '2024-07-29 20:29:12', '2025-05-04 12:10:14'),
-(4, 4, 21, '2024-07-30', 3, '2024-07-29 20:29:23', '2025-05-04 12:10:14'),
-(6, 4, 21, '2024-07-30', 6, '2024-08-02 06:14:47', '2025-05-04 12:10:14'),
-(8, 5, 21, '2024-07-30', 1, '2024-08-02 06:20:04', '2025-05-04 12:10:14'),
-(9, 5, 21, '2024-07-30', 1, '2024-08-02 06:31:00', '2025-05-04 12:10:14'),
-(10, 4, 21, '2024-07-30', 3, '2024-08-02 07:12:17', '2025-05-04 12:10:14'),
-(16, 6, 18, '2025-05-04', 5, '2024-08-02 14:47:29', '2025-05-04 13:36:54'),
-(17, 3, 18, '2025-05-04', 4, '2025-05-04 13:14:12', NULL);
+INSERT INTO `tbl_pesanan` (`id_pesanan`, `id_barang`, `id_customer`, `tanggal_pesanan`, `jumlah_pesanan`, `status_pesanan`, `created_at`, `updated_at`) VALUES
+(1, 6, 21, '2024-07-30', 2, 'belum_diproses', '2024-07-29 20:26:41', '2025-05-04 12:10:14'),
+(3, 5, 21, '2024-07-30', 3, 'belum_diproses', '2024-07-29 20:29:12', '2025-05-04 12:10:14'),
+(4, 4, 21, '2024-07-30', 3, 'belum_diproses', '2024-07-29 20:29:23', '2025-05-04 12:10:14'),
+(6, 4, 21, '2024-07-30', 6, 'belum_diproses', '2024-08-02 06:14:47', '2025-05-04 12:10:14'),
+(8, 5, 21, '2024-07-30', 1, 'belum_diproses', '2024-08-02 06:20:04', '2025-05-04 12:10:14'),
+(9, 5, 21, '2024-07-30', 1, 'belum_diproses', '2024-08-02 06:31:00', '2025-05-04 12:10:14'),
+(10, 4, 21, '2024-07-30', 3, 'belum_diproses', '2024-08-02 07:12:17', '2025-05-04 12:10:14'),
+(16, 6, 18, '2025-05-04', 5, 'diproses', '2024-08-02 14:47:29', '2025-05-11 04:18:15'),
+(17, 3, 18, '2025-05-04', 4, 'sudah_diproses', '2025-05-04 13:14:12', '2025-05-11 04:19:30'),
+(20, 6, 18, '2025-05-04', 15, 'belum_diproses', '2025-05-11 04:20:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -284,7 +287,7 @@ ALTER TABLE `tbl_informasi`
 -- AUTO_INCREMENT for table `tbl_kunjungan`
 --
 ALTER TABLE `tbl_kunjungan`
-  MODIFY `id_kunjungan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kunjungan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_pengguna`
@@ -296,7 +299,7 @@ ALTER TABLE `tbl_pengguna`
 -- AUTO_INCREMENT for table `tbl_pesanan`
 --
 ALTER TABLE `tbl_pesanan`
-  MODIFY `id_pesanan` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_pesanan` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tbl_supervisor`

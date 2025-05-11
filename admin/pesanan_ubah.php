@@ -20,6 +20,7 @@
     $id_customer     = $_POST['xid_customer'];
     $tanggal_pesanan = $_POST['xtanggal_pesanan'];
     $jumlah_pesanan  = $_POST['xjumlah_pesanan'];
+    $status_pesanan  = $_POST['xstatus_pesanan'];
     
     $stmt = mysqli_stmt_init($connection);
     $query_pesanan = "UPDATE tbl_pesanan SET
@@ -27,10 +28,11 @@
         , id_customer = ?
         , tanggal_pesanan = ?
         , jumlah_pesanan = ?
+        , status_pesanan = ?
     WHERE id_pesanan =?";
 
     mysqli_stmt_prepare($stmt, $query_pesanan);
-    mysqli_stmt_bind_param($stmt, 'iisii', $id_barang, $id_customer, $tanggal_pesanan, $jumlah_pesanan, $id_pesanan);
+    mysqli_stmt_bind_param($stmt, 'iisisi', $id_barang, $id_customer, $tanggal_pesanan, $jumlah_pesanan, $status_pesanan, $id_pesanan);
 
     $update = mysqli_stmt_execute($stmt);
 

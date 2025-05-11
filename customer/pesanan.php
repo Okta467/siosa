@@ -76,6 +76,7 @@ else :
                       <th>Harga</th>
                       <th>Total</th>
                       <th>Tanggal Pesanan</th>
+                      <th>Status</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
@@ -86,7 +87,7 @@ else :
                     $nama_customer = $_SESSION['nama_customer'];
                     $query_pesanan = mysqli_query($connection,
                       "SELECT
-                        a.id_pesanan, a.tanggal_pesanan, a.jumlah_pesanan, a.created_at AS created_at_pesanan, a.updated_at AS updated_as_peasnan,
+                        a.id_pesanan, a.tanggal_pesanan, a.jumlah_pesanan, a.status_pesanan, a.created_at AS created_at_pesanan, a.updated_at AS updated_as_peasnan,
                         b.id_barang, b.kode_barang, b.nama_barang, b.satuan_barang, b.harga_barang, b.created_at AS created_at_barang, b.updated_at AS updated_at_barang,
                         c.id_customer, c.nama_customer, c.jenis_kelamin, c.alamat, c.tempat_lahir, c.tanggal_lahir, c.created_at AS created_at_customer, c.updated_at AS updated_at_customer,
                         d.id_pengguna, d.username, d.hak_akses, d.created_at AS created_at_pengguna, d.last_login
@@ -105,6 +106,7 @@ else :
                       $harga_barang = 'Rp'.number_format($pesanan['harga_barang'], 0, ',', '.');
                       $total_harga = $pesanan['jumlah_pesanan'] * $pesanan['harga_barang'];
                       $total_harga = 'Rp'.number_format($total_harga);
+                      $status_pesanan = ucwords(str_replace('_', ' ', $pesanan['status_pesanan']));
                     ?>
 
                       <tr>
@@ -129,6 +131,15 @@ else :
                         <td><?= $harga_barang ?></td>
                         <td><?= $total_harga ?></td>
                         <td><?= $pesanan['tanggal_pesanan'] ?></td>
+                        <td>
+                          <?php if ($status_pesanan === 'Belum Diproses'): ?>
+                            <span class="text-danger"><?= $status_pesanan ?></span>
+                          <?php elseif ($status_pesanan === 'Diproses'): ?>
+                            <span class="text-info"><?= $status_pesanan ?></span>
+                          <?php elseif ($status_pesanan === 'Sudah Diproses'): ?>
+                            <span class="text-success"><?= $status_pesanan ?></span>
+                          <?php endif ?>
+                        </td>
                         <td>
                           <button class="btn btn-datatable btn-icon btn-transparent-dark me-2 toggle_modal_ubah"
                             data-id_pesanan="<?= $pesanan['id_pesanan'] ?>"

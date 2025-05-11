@@ -19,11 +19,12 @@
     $id_customer     = $_POST['xid_customer'];
     $tanggal_pesanan = $_POST['xtanggal_pesanan'];
     $jumlah_pesanan  = $_POST['xjumlah_pesanan'];
+    $status_pesanan  = $_POST['xstatus_pesanan'];
     
     $stmt = mysqli_stmt_init($connection);
 
-    mysqli_stmt_prepare($stmt, "INSERT INTO tbl_pesanan (id_barang, id_customer, tanggal_pesanan, jumlah_pesanan) VALUES (?, ?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, 'iisi', $id_barang, $id_customer, $tanggal_pesanan, $jumlah_pesanan);
+    mysqli_stmt_prepare($stmt, "INSERT INTO tbl_pesanan (id_barang, id_customer, tanggal_pesanan, jumlah_pesanan, status_pesanan) VALUES (?, ?, ?, ?, ?)");
+    mysqli_stmt_bind_param($stmt, 'iisis', $id_barang, $id_customer, $tanggal_pesanan, $jumlah_pesanan, $status_pesanan);
 
     $insert = mysqli_stmt_execute($stmt);
 
