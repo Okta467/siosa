@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2025 at 11:26 PM
+-- Generation Time: May 11, 2025 at 05:53 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sipmen`
+-- Database: `siosa`
 --
 
 -- --------------------------------------------------------
@@ -74,7 +74,7 @@ CREATE TABLE `tbl_customer` (
 --
 
 INSERT INTO `tbl_customer` (`id_customer`, `id_pengguna`, `nama_customer`, `jenis_kelamin`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `path_to_foto_profil`, `created_at`, `updated_at`) VALUES
-(18, 21, 'Okta Alfiansyah', 'l', 'Jln. KH Wahid Hasyim 1197, Lrg. Juwita, kec. Seberang Ulu 1, Kel. Jakabaring, Kota Palembang, Sumatera Selatan, 30257', 'Palembang', '1999-01-01', 'a492387eea87aa852c6a4639361511dbdce1df96d41dd84213c57c30e5b4949b.jpg', '2025-05-04 04:23:32', '2025-05-04 20:18:31'),
+(18, 21, 'Okta Alfiansyah', 'l', 'Jln. KH Wahid Hasyim 1197, Lrg. Juwita, kec. Seberang Ulu 1, Kel. Jakabaring, Kota Palembang, Sumatera Selatan, 30257', 'Palembang', '1999-01-01', '98de1e7898cb39ccb7c237eb11a962e5d2667297ca5f63d1911f03f6059d9e7b.jpg', '2025-05-04 04:23:32', '2025-05-07 18:37:49'),
 (21, 30, 'Bima Satria', 'l', 'Gang Duren', 'Semende', '1999-09-09', '', '2025-05-04 05:40:46', '2025-05-04 13:02:57'),
 (22, 35, 'tes', 'l', 'Kertapati', 'Sem12321ende', '1999-01-01', '', '2025-05-04 19:18:01', NULL);
 
@@ -102,6 +102,30 @@ INSERT INTO `tbl_informasi` (`id_informasi`, `judul_informasi`, `isi_informasi`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_kunjungan`
+--
+
+CREATE TABLE `tbl_kunjungan` (
+  `id_kunjungan` int(10) UNSIGNED NOT NULL,
+  `id_customer` int(10) UNSIGNED NOT NULL,
+  `tanggal_kunjungan` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `is_visited` tinyint(4) NOT NULL DEFAULT 0 COMMENT '''1'' = berkunjung, ''2'' = belum berkunjung (pada waktu yang telah ditentukan customer)',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_kunjungan`
+--
+
+INSERT INTO `tbl_kunjungan` (`id_kunjungan`, `id_customer`, `tanggal_kunjungan`, `is_visited`, `created_at`, `updated_at`) VALUES
+(1, 18, '2025-05-07 18:49:43', 0, '2025-05-07 18:49:43', NULL),
+(2, 21, '2025-05-18 04:00:00', 0, '2025-05-07 23:26:55', '2025-05-07 23:42:56'),
+(4, 18, '2025-05-12 09:30:00', 1, '2025-05-07 23:49:16', '2025-05-10 14:10:44');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_pengguna`
 --
 
@@ -119,10 +143,10 @@ CREATE TABLE `tbl_pengguna` (
 --
 
 INSERT INTO `tbl_pengguna` (`id_pengguna`, `username`, `password`, `hak_akses`, `created_at`, `last_login`) VALUES
-(9, 'admin', '$2y$10$r6i9ouw57cTTevcboVpfxuaaeGE.LqvH0ivtFunGnpjhus3jtxu1q', 'admin', '2024-06-10 14:42:24', '2025-05-04 15:10:52'),
-(21, 'okta99', '$2y$10$0HgF2X3fvRoHinFuPtaLuOcaEKFP1Nt3b7ftnmvzWHds6wTN1mNLa', 'customer', '2025-05-04 04:23:32', '2025-05-04 15:36:12'),
+(9, 'admin', '$2y$10$r6i9ouw57cTTevcboVpfxuaaeGE.LqvH0ivtFunGnpjhus3jtxu1q', 'admin', '2024-06-10 14:42:24', '2025-05-10 09:54:32'),
+(21, 'okta99', '$2y$10$0HgF2X3fvRoHinFuPtaLuOcaEKFP1Nt3b7ftnmvzWHds6wTN1mNLa', 'customer', '2025-05-04 04:23:32', '2025-05-10 13:40:05'),
 (30, 'bima99', '$2y$10$SSoZDPXvWnCBfR4Et9qZHOiDH2wm9nGZNjJA8FmPG53lZ8avfiiJW', 'customer', '2025-05-04 05:40:46', NULL),
-(31, 'nadya99', '$2y$10$l4sjXYt8ow1XYuPMt.gX6O97LU04lAtS2l.0RQgKr6eDf7MZC03/6', 'supervisor', '2025-05-04 05:41:20', '2025-05-04 15:09:54'),
+(31, 'nadya99', '$2y$10$l4sjXYt8ow1XYuPMt.gX6O97LU04lAtS2l.0RQgKr6eDf7MZC03/6', 'supervisor', '2025-05-04 05:41:20', '2025-05-10 09:46:21'),
 (35, 'tess', '$2y$10$3N7nozsZbAuvEsdxRijZEOEQyx3WKbh0tiQGA57PLkh1PUTEtyyya', 'customer', '2025-05-04 19:18:01', NULL);
 
 -- --------------------------------------------------------
@@ -180,7 +204,7 @@ CREATE TABLE `tbl_supervisor` (
 --
 
 INSERT INTO `tbl_supervisor` (`id_supervisor`, `id_pengguna`, `nama_supervisor`, `jenis_kelamin`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `path_to_foto_profil`, `created_at`, `updated_at`) VALUES
-(4, 31, 'Nadya', 'p', 'Ilir Barat 3', 'Paga', '2003-04-04', '57f1b1bea24c4f19f3bc6236c9b0fcab6a3ac62e8637fa91f9191ac67d656a6a.jpg', '2025-05-04 05:41:20', '2025-05-04 19:33:40');
+(4, 31, 'Nadya', 'p', 'Ilir Barat 3', 'Pagaralam', '2003-04-04', '6d4ec119824f1d3ae1d198c02ee6db605a53cb219dc9d3436eba94e4b805c786.png', '2025-05-04 05:41:20', '2025-05-08 00:17:48');
 
 --
 -- Indexes for dumped tables
@@ -204,6 +228,13 @@ ALTER TABLE `tbl_customer`
 --
 ALTER TABLE `tbl_informasi`
   ADD PRIMARY KEY (`id_informasi`);
+
+--
+-- Indexes for table `tbl_kunjungan`
+--
+ALTER TABLE `tbl_kunjungan`
+  ADD PRIMARY KEY (`id_kunjungan`),
+  ADD KEY `id_customer` (`id_customer`);
 
 --
 -- Indexes for table `tbl_pengguna`
@@ -250,6 +281,12 @@ ALTER TABLE `tbl_informasi`
   MODIFY `id_informasi` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `tbl_kunjungan`
+--
+ALTER TABLE `tbl_kunjungan`
+  MODIFY `id_kunjungan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `tbl_pengguna`
 --
 ALTER TABLE `tbl_pengguna`
@@ -276,6 +313,12 @@ ALTER TABLE `tbl_supervisor`
 --
 ALTER TABLE `tbl_customer`
   ADD CONSTRAINT `tbl_customer_ibfk_2` FOREIGN KEY (`id_pengguna`) REFERENCES `tbl_pengguna` (`id_pengguna`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_kunjungan`
+--
+ALTER TABLE `tbl_kunjungan`
+  ADD CONSTRAINT `tbl_kunjungan_ibfk_1` FOREIGN KEY (`id_customer`) REFERENCES `tbl_customer` (`id_customer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_pesanan`
